@@ -12,6 +12,7 @@ function Search() {
     event.preventDefault();
     if (term) {
       setSearchTerm(term);
+      setTerm('');
     }
   }
 
@@ -20,9 +21,9 @@ function Search() {
   }
 
   const handleRandom = () => {
-    fetchRandomMeal();
     setTerm('');
     setSearchTerm('');
+    fetchRandomMeal();
   }
 
   return (
@@ -36,8 +37,8 @@ function Search() {
           placeholder='please, type a search term...'
           onChange={handleChange}>
         </input>
-        <button type='submit' className='search-btn'><ImSearch /></button>
-        <button type="button" className="btn btn-hipster" onClick={handleRandom}>Suprise me !</button>
+        <button type='submit' className='btn-search'><ImSearch /></button>
+        <button type="button" className="btn btn-random" onClick={handleRandom}>Suprise me !</button>
       </form>
     </div>
   )

@@ -4,15 +4,15 @@ import { AiOutlineLike } from "react-icons/ai";
 
 function Meals() {
 
-  const { meals, loading }= useGlobalContext();
+  const { meals, loading, selectMeal }= useGlobalContext();
 
   const renderMeals = meals.map((meal) => {
 
-    const { idMeal, strMeal: title, strMealThumb: image } = meal
+    const { idMeal, strMeal: title, strMealThumb: image } = meal;
 
     return (
-      <article key={idMeal} className='single-meal'>
-        <img src={image} className='img'/>
+      <article key={idMeal} className='single-meal' onClick={() => selectMeal(idMeal)}>
+        <img src={image} alt={title} className='img'/>
         <footer>
           <h6>{title}</h6>
           <button className='like-btn'><AiOutlineLike/></button>
@@ -27,17 +27,12 @@ function Meals() {
   }
 
   if (meals.length === 0) {
-    return <section className='section-center'><h2>No items found :/</h2></section>
+    return <section className='section-center'><h4>No matches were found. Please, try it again.</h4></section>
   }
 
   if (meals.length >= 1) {
     return <section className='section-center'>{renderMeals}</section>
   }
-
-
-
-
-
 
 }
 

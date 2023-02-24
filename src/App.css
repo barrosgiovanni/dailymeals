@@ -154,12 +154,12 @@ ul {
   background: var(--primary-700);
   box-shadow: var(--shadow-3);
 }
-.btn-hipster {
+.btn-random {
   color: var(--primary-500);
   background: var(--primary-200);
   margin-left: 3rem;
 }
-.btn-hipster:hover {
+.btn-random:hover {
   color: var(--white);
   background: var(--black);
 }
@@ -197,7 +197,7 @@ ul {
   color:var(--grey-400);
 }
 
-.search-btn {
+.btn-search {
   padding-left: 4px;
   margin-top: 8px;
   background-color: transparent;
@@ -207,7 +207,7 @@ ul {
   transition: 0.5s ease;
 }
 
-.search-btn:hover {
+.btn-search:hover {
   cursor: pointer;
 }
 
