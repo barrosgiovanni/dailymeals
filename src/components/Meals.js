@@ -4,7 +4,7 @@ import { AiOutlineLike } from "react-icons/ai";
 
 function Meals() {
 
-  const { meals }= useGlobalContext();
+  const { meals, loading }= useGlobalContext();
 
   const renderMeals = meals.map((meal) => {
 
@@ -15,18 +15,29 @@ function Meals() {
         <img src={image} className='img'/>
         <footer>
           <h5>{title}</h5>
-          <AiOutlineLike className='like-btn'/>
+          <button className='like-btn'><AiOutlineLike/></button>
         </footer>
       </article>
     )
 
   })
 
-  return (
+  if (loading) {
+    return <section className='section-center'><h2>Loading...</h2></section>
+  }
 
-    <section className='section-center'>{renderMeals}</section>
+  if (meals.length === 0) {
+    return <section className='section-center'><h2>No items found :/</h2></section>
+  }
 
-  )
+  if (meals.length >= 1) {
+    return <section className='section-center'>{renderMeals}</section>
+  }
+
+
+
+
+
 
 }
 
