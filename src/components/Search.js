@@ -1,5 +1,5 @@
-import React, { useContext } from 'react';
-import { AppContext } from "../context";
+import React from 'react';
+import {useGlobalContext } from "../context";
 
 function Search() {
   return (

@@ -1,15 +1,24 @@
-import React, { useContext } from 'react';
-import { AppContext } from "../context";
+import React from 'react';
+import {useGlobalContext } from "../context";
 
 function Meals() {
 
-  const context = useContext(AppContext);
+  const { meals }= useGlobalContext();
+  const generateUniqueId = require('generate-unique-id');
 
-  console.log(context);
+  const renderMeals = meals.map((meal) => {
+
+    return (
+      <div key={generateUniqueId()}>
+        <h2>{meal.strMeal}</h2>
+      </div>
+    )
+
+  })
 
   return (
 
-    <div>Meals</div>
+    <div>{renderMeals}</div>
 
   )
 
