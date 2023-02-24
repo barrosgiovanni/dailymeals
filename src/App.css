@@ -355,3 +355,7 @@ cursor:pointer;
   background:var(--red-dark);
   color:var(--white);
 }
+.btn-youtube {
+  font-size: 4rem;
+  color: rgb(200, 7, 7);
+}

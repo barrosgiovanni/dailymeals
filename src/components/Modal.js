@@ -23,7 +23,7 @@ function Modal() {
         <h2>{title}</h2>
         <h4>Category: {category}</h4>
         <h4>Origin: {origin}</h4>
-        <a href={youtube}><TfiYoutube /></a>
+        <a href={youtube}><TfiYoutube className='btn-youtube'/></a>
         <p>Description: {description}</p>
       </div>
     </aside>
