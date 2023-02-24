@@ -4,17 +4,25 @@ import { ImSearch } from "react-icons/im";
 
 function Search() {
 
-  const { meals, handleSearch }= useGlobalContext();
+  const { setSearchTerm, fetchRandomMeal }= useGlobalContext();
 
   const [term, setTerm] = useState('');
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    handleSearch(term);
+    if (term) {
+      setSearchTerm(term);
+    }
   }
 
   const handleChange = (event) => {
     setTerm(event.target.value);
+  }
+
+  const handleRandom = () => {
+    fetchRandomMeal();
+    setTerm('');
+    setSearchTerm('');
   }
 
   return (
@@ -29,6 +37,7 @@ function Search() {
           onChange={handleChange}>
         </input>
         <button type='submit' className='search-btn'><ImSearch /></button>
+        <button type="button" className="btn btn-hipster" onClick={handleRandom}>Suprise me !</button>
       </form>
     </div>
   )

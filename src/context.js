@@ -10,6 +10,7 @@ function AppProvider({ children }) {
 
   const [meals, setMeals] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [searchTerm, setSearchTerm] = useState('');
 
   const fetchMeals = async (url) => {
     setLoading(true);
@@ -17,10 +18,8 @@ function AppProvider({ children }) {
       const { data } = await axios(url);
       if (data.meals) {
         setMeals(data.meals);
-        console.log('data meals has values');
       } else {
         setMeals([]);
-        console.log('data meals has no values');
       }
 
     }
@@ -31,16 +30,15 @@ function AppProvider({ children }) {
   }
 
   useEffect(() => {
-    fetchMeals(allMealsUrl);
-  }, [])
+    fetchMeals(`${allMealsUrl}${searchTerm}`);
+  }, [searchTerm])
 
-  const handleSearch = (term) => {
-    const searchUrl = `https://www.themealdb.com/api/json/v1/1/search.php?s=${term}`;
-    fetchMeals(searchUrl);
+  const fetchRandomMeal = () => {
+    fetchMeals(randomMealUrl);
   }
 
   return (
-    <AppContext.Provider value={{ meals, loading, handleSearch }}>
+    <AppContext.Provider value={{ meals, loading, setSearchTerm, fetchRandomMeal }}>
       {children}
     </AppContext.Provider>
   )

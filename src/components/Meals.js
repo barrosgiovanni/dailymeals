@@ -14,7 +14,7 @@ function Meals() {
       <article key={idMeal} className='single-meal'>
         <img src={image} className='img'/>
         <footer>
-          <h5>{title}</h5>
+          <h6>{title}</h6>
           <button className='like-btn'><AiOutlineLike/></button>
         </footer>
       </article>

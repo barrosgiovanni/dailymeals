@@ -113,6 +113,10 @@ h5 {
   font-size: 1.25rem;
 }
 
+h6 {
+  font-size: 1rem;
+}
+
 small,
 .text-small {
   font-size: var(--small-text);
@@ -153,6 +157,7 @@ ul {
 .btn-hipster {
   color: var(--primary-500);
   background: var(--primary-200);
+  margin-left: 3rem;
 }
 .btn-hipster:hover {
   color: var(--white);
