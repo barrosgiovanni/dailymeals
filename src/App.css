@@ -224,25 +224,25 @@ ul {
 }
 .favourites-container{
   display:flex;
-  gap:0.5rem;
+  gap:1.5rem;
   flex-wrap:wrap;
 }
 .favourite-item{
   text-align:center;
 }
 .favourites-img{
-  width:60px;
+  width:120px;
   border-radius:50%;
-  border:5px solid var(--white);
+  border:4px solid var(--white);
   cursor:pointer;
 }
 .remove-btn{
-  margin-top:0.25rem;
+  margin-top: -1rem;
   background:transparent;
   color:var(--white);
     border:transparent;
   cursor:pointer;
-  font-size:0.5rem;
+  font-size:1.8rem;
   transition:var(--transition);
 }
 .remove-btn:hover{

@@ -1,21 +1,22 @@
 import React from 'react';
 import {useGlobalContext } from "../context";
-import { AiOutlineLike } from "react-icons/ai";
+import { AiOutlineStar, AiFillStar } from "react-icons/ai";
 
 function Meals() {
 
-  const { meals, loading, selectMeal, addToFavourites }= useGlobalContext();
+  const { meals, loading, selectMeal, favourites, addToFavourites }= useGlobalContext();
 
   const renderMeals = meals.map((meal) => {
 
     const { idMeal, strMeal: title, strMealThumb: image } = meal;
+    const starred = favourites.find((favourite) => favourite.idMeal === idMeal);
 
     return (
       <article key={idMeal} className='single-meal'>
         <img src={image} alt={title} className='img' onClick={() => selectMeal(idMeal)}/>
         <footer>
           <h6>{title}</h6>
-          <button className='like-btn' onClick={() => addToFavourites(idMeal)}><AiOutlineLike/></button>
+          <button className='like-btn' onClick={() => addToFavourites(idMeal)}>{ starred ? <AiFillStar /> : <AiOutlineStar />}</button>
         </footer>
       </article>
     )

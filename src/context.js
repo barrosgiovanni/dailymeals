@@ -55,19 +55,17 @@ function AppProvider({ children }) {
   }
 
   const addToFavourites = (idMeal) => {
-
     const favouriteMeal = meals.find((meal) => meal.idMeal === idMeal);
-
     const alreadyAdded = favourites.find((favourite) => favourite.idMeal === idMeal);
-
     if (alreadyAdded) return
-
     const updatedFavourites = [...favourites, favouriteMeal];
     setFavourites(updatedFavourites);
-
   }
 
-  console.log(favourites);
+  const removeFromfavourites = (idMeal) => {
+    const updatedFavourites = favourites.filter((favourite) => favourite.idMeal !== idMeal);
+    setFavourites(updatedFavourites);
+  }
 
 
   return (
@@ -84,7 +82,8 @@ function AppProvider({ children }) {
       selectMeal,
       closeModal,
       favourites,
-      addToFavourites
+      addToFavourites,
+      removeFromfavourites
       }}
     >
       {children}
