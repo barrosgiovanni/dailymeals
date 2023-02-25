@@ -19,12 +19,15 @@ function Modal() {
   return (
     <aside className='modal-overlay' onClick={closeModal}>
       <div className='modal-container'>
-        <img src={image} alt={idMeal}/>
-        <h2>{title}</h2>
-        <h4>Category: {category}</h4>
-        <h4>Origin: {origin}</h4>
-        <a href={youtube}><TfiYoutube className='btn-youtube'/></a>
-        <p>Description: {description}</p>
+        <img className='modal-img' src={image} alt={idMeal}/>
+        <div className='modal-content'>
+          <h3>{title}</h3>
+          <h5>Category: {category}</h5>
+          <h5>Origin: {origin}</h5>
+          <a href={youtube} target="_blank" rel='noreferrer'><TfiYoutube className='btn-youtube'/></a>
+          <h5>Description:</h5>
+          <p>{description}</p>
+        </div>
       </div>
     </aside>
   )

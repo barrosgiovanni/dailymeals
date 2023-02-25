@@ -331,18 +331,29 @@ cursor:pointer;
   border-radius:var(--borderRadius);
 }
 .modal-img{
-  height:15rem;
+  height: 70%;
+  width: 100%;
   border-top-left-radius:var(--borderRadius);
   border-top-right-radius:var(--borderRadius);
 }
 .modal-content{
   padding:1rem 1.5rem;
+  position: relative;
 }
 .modal-content p{
   color:var(--grey-600);
 }
+.modal-content h3 {
+  margin: 0rem;
+}
+.modal-content h5 {
+  margin: 1rem 0;
+}
 .modal-content a{
   display:block;
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
   color:var(--primary-500);
   margin-bottom:1rem;
   text-decoration:underline;
@@ -351,7 +362,7 @@ cursor:pointer;
 .modal-content a:hover{
   color:var(--black)
 }
-.close-btn{
+.btn-close{
   background:var(--red-dark);
   color:var(--white);
 }
