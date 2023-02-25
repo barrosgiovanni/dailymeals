@@ -19,7 +19,7 @@ function Modal() {
   return (
     <aside className='modal-overlay' onClick={closeModal}>
       <div className='modal-container'>
-        <img className='modal-img' src={image} alt={idMeal}/>
+        <img className='img modal-img' src={image} alt={idMeal}/>
         <div className='modal-content'>
           <h3>{title}</h3>
           <h5>Category: {category}</h5>

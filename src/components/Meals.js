@@ -4,18 +4,18 @@ import { AiOutlineLike } from "react-icons/ai";
 
 function Meals() {
 
-  const { meals, loading, selectMeal }= useGlobalContext();
+  const { meals, loading, selectMeal, addToFavourites }= useGlobalContext();
 
   const renderMeals = meals.map((meal) => {
 
     const { idMeal, strMeal: title, strMealThumb: image } = meal;
 
     return (
-      <article key={idMeal} className='single-meal' onClick={() => selectMeal(idMeal)}>
-        <img src={image} alt={title} className='img'/>
+      <article key={idMeal} className='single-meal'>
+        <img src={image} alt={title} className='img' onClick={() => selectMeal(idMeal)}/>
         <footer>
           <h6>{title}</h6>
-          <button className='like-btn'><AiOutlineLike/></button>
+          <button className='like-btn' onClick={() => addToFavourites(idMeal)}><AiOutlineLike/></button>
         </footer>
       </article>
     )

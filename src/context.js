@@ -13,6 +13,7 @@ function AppProvider({ children }) {
   const [searchTerm, setSearchTerm] = useState('');
   const [isModalOpened, setIsModalOpened] = useState(false);
   const [selectedMeal, setSelectedMeal] = useState(null);
+  const [favourites, setFavourites] = useState([]);
 
   const fetchMeals = async (url) => {
     setLoading(true);
@@ -44,14 +45,30 @@ function AppProvider({ children }) {
   }
 
   const selectMeal = (idMeal) => {
-    let meal = meals.find((meal) => meal.idMeal === idMeal);
-    setSelectedMeal(meal);
+    let mealToSelect = meals.find((meal) => meal.idMeal === idMeal);
+    setSelectedMeal(mealToSelect);
     setIsModalOpened(true);
   }
 
   const closeModal = () => {
     setIsModalOpened(false);
   }
+
+  const addToFavourites = (idMeal) => {
+
+    const favouriteMeal = meals.find((meal) => meal.idMeal === idMeal);
+
+    const alreadyAdded = favourites.find((favourite) => favourite.idMeal === idMeal);
+
+    if (alreadyAdded) return
+
+    const updatedFavourites = [...favourites, favouriteMeal];
+    setFavourites(updatedFavourites);
+
+  }
+
+  console.log(favourites);
+
 
   return (
     <AppContext.Provider
@@ -65,7 +82,9 @@ function AppProvider({ children }) {
       isModalOpened,
       selectedMeal,
       selectMeal,
-      closeModal
+      closeModal,
+      favourites,
+      addToFavourites
       }}
     >
       {children}

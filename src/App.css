@@ -211,26 +211,26 @@ ul {
   cursor: pointer;
 }
 
-/* Favorites */
-.favorites{
+/* Favourites */
+.favourites{
   background:var(--black);
   color:var(--white);
   padding:1rem 0;
 }
-.favorites-content{
+.favourites-content{
   width:var(--view-width);
   max-width:var(--max-width);
   margin:0 auto;
 }
-.favorites-container{
+.favourites-container{
   display:flex;
   gap:0.5rem;
   flex-wrap:wrap;
 }
-.favorite-item{
+.favourite-item{
   text-align:center;
 }
-.favorites-img{
+.favourites-img{
   width:60px;
   border-radius:50%;
   border:5px solid var(--white);
@@ -331,7 +331,7 @@ cursor:pointer;
   border-radius:var(--borderRadius);
 }
 .modal-img{
-  height: 70%;
+  height: 71%;
   width: 100%;
   border-top-left-radius:var(--borderRadius);
   border-top-right-radius:var(--borderRadius);
