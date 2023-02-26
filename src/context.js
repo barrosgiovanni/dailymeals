@@ -3,6 +3,17 @@ import axios from "axios";
 
 const AppContext = React.createContext();
 
+const getFavouritesFromLocalStorage = () => {
+  let favourites = localStorage.getItem('favourites');
+
+  if (favourites) {
+    favourites = JSON.parse(localStorage.getItem('favourites'));
+  } else {
+    favourites = [];
+  }
+  return favourites;
+}
+
 function AppProvider({ children }) {
 
   const allMealsUrl = 'https://www.themealdb.com/api/json/v1/1/search.php?s=';
@@ -13,7 +24,7 @@ function AppProvider({ children }) {
   const [searchTerm, setSearchTerm] = useState('');
   const [isModalOpened, setIsModalOpened] = useState(false);
   const [selectedMeal, setSelectedMeal] = useState(null);
-  const [favourites, setFavourites] = useState([]);
+  const [favourites, setFavourites] = useState(getFavouritesFromLocalStorage());
 
   const fetchMeals = async (url) => {
     setLoading(true);
@@ -44,8 +55,13 @@ function AppProvider({ children }) {
     fetchMeals(randomMealUrl);
   }
 
-  const selectMeal = (idMeal) => {
-    let mealToSelect = meals.find((meal) => meal.idMeal === idMeal);
+  const selectMeal = (idMeal, favouriteMeal) => {
+    let mealToSelect;
+    if (favouriteMeal) {
+      mealToSelect = favourites.find((meal) => meal.idMeal === idMeal);
+    } else {
+      mealToSelect = meals.find((meal) => meal.idMeal === idMeal);
+    }
     setSelectedMeal(mealToSelect);
     setIsModalOpened(true);
   }
@@ -60,11 +76,13 @@ function AppProvider({ children }) {
     if (alreadyAdded) return
     const updatedFavourites = [...favourites, favouriteMeal];
     setFavourites(updatedFavourites);
+    localStorage.setItem('favourites', JSON.stringify(updatedFavourites));
   }
 
   const removeFromFavourites = (idMeal) => {
     const updatedFavourites = favourites.filter((favourite) => favourite.idMeal !== idMeal);
     setFavourites(updatedFavourites);
+    localStorage.setItem('favourites', JSON.stringify(updatedFavourites));
   }
 
 

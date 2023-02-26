@@ -12,7 +12,7 @@ function Favourites() {
 
     return (
       <div key={idMeal} className="favorite-item" >
-        <img src={image} className="favourites-img img" alt={title} onClick={() => selectMeal(idMeal)}/>
+        <img src={image} className="favourites-img img" alt={title} onClick={() => selectMeal(idMeal, true)}/>
         <button className='remove-btn' onClick={() => removeFromFavourites(idMeal)}><IoIosRemoveCircle /></button>
       </div>
     )
