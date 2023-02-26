@@ -62,7 +62,7 @@ function AppProvider({ children }) {
     setFavourites(updatedFavourites);
   }
 
-  const removeFromfavourites = (idMeal) => {
+  const removeFromFavourites = (idMeal) => {
     const updatedFavourites = favourites.filter((favourite) => favourite.idMeal !== idMeal);
     setFavourites(updatedFavourites);
   }
@@ -83,7 +83,7 @@ function AppProvider({ children }) {
       closeModal,
       favourites,
       addToFavourites,
-      removeFromfavourites
+      removeFromFavourites
       }}
     >
       {children}

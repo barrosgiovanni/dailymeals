@@ -4,7 +4,7 @@ import { IoIosRemoveCircle } from "react-icons/io";
 
 function Favourites() {
 
-  const { favourites, removeFromfavourites } = useGlobalContext();
+  const { favourites, removeFromFavourites, selectMeal } = useGlobalContext();
 
   const renderFavourites = favourites.map((favourite) => {
 
@@ -12,8 +12,8 @@ function Favourites() {
 
     return (
       <div key={idMeal} className="favorite-item" >
-        <img src={image} className="favourites-img img" alt={title}/>
-        <button className='remove-btn' onClick={() => removeFromfavourites(idMeal)}><IoIosRemoveCircle /></button>
+        <img src={image} className="favourites-img img" alt={title} onClick={() => selectMeal(idMeal)}/>
+        <button className='remove-btn' onClick={() => removeFromFavourites(idMeal)}><IoIosRemoveCircle /></button>
       </div>
     )
   })
