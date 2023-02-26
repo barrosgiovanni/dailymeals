@@ -15,7 +15,7 @@ function Meals() {
       if (starred) {
         removeFromFavourites(idMeal);
       } else {
-        addToFavourites(idMeal)
+        addToFavourites(idMeal);
       }
     }
 
@@ -24,7 +24,7 @@ function Meals() {
         <img src={image} alt={title} className='img' onClick={() => selectMeal(idMeal)}/>
         <footer>
           <h6>{title}</h6>
-          <button className='like-btn' onClick={handleStarring}>{ starred ? <AiFillStar /> : <AiOutlineStar />}</button>
+          <button className='like-btn' onClick={handleStarring}>{ starred ? <AiFillStar className='btn-filled-star' /> : <AiOutlineStar />}</button>
         </footer>
       </article>
     )

@@ -367,6 +367,21 @@ cursor:pointer;
   color:var(--white);
 }
 .btn-youtube {
-  font-size: 4rem;
+  font-size: 2.5rem;
   color: rgb(200, 7, 7);
+}
+.btn-star {
+  display:block;
+  position: absolute;
+  background:transparent;
+  border:transparent;
+  top: 1.3rem;
+  right: 5rem;
+  margin-bottom:1rem;
+  font-size:2.2rem;
+  transition:var(--transition);
+  cursor:pointer;
+}
+.btn-filled-star {
+  color: rgb(240, 189, 4);
 }
