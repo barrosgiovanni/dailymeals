@@ -38,7 +38,7 @@ function Search() {
           onChange={handleChange}>
         </input>
         <button type='submit' className='btn-search'><ImSearch /></button>
-        <button type="button" className="btn btn-random" onClick={handleRandom}>Surprise me !</button>
+        <button type="button" className="btn btn-random" onClick={handleRandom}>Go random!</button>
       </form>
     </div>
   )
